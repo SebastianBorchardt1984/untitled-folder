@@ -1,0 +1,5 @@
+-- Hier sind für den Prozess die initialen Schrittbeschreibungen zu füllen für die VbE Berechnung
+--
+--INSERT INTO process_step_details VALUES ('Dummy1', 'Dummy-Step 1', 'Dummy-Beschreibung', 0.123);
+--INSERT INTO process_step_details VALUES ('Dummy2', 'Dummy-Step 2', 'Dummy-Beschreibung', 0.234);
+--INSERT INTO process_step_details VALUES ('Dummy3', 'Dummy-Step 3', 'Dummy-Beschreibung', 0.345);

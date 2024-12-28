@@ -1,0 +1,2 @@
+ALTER TABLE IF EXISTS processes ALTER COLUMN message TYPE varchar(30000) USING message::varchar;
+ALTER TABLE IF EXISTS process_instance_variable_log ALTER COLUMN variable_value TYPE varchar(30000) USING variable_value::varchar;
