@@ -210,7 +210,7 @@
     </repository>
     <repository>
         <id>snapshots-repo</id>
-        <url>https://repository-url/snapshots</url>
+        <url>https://repository.apache.org/snapshots</url>
         <releases>
             <enabled>false</enabled>
         </releases>
