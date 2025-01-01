@@ -5,7 +5,7 @@ services:
     image: postgres:14
     environment:
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: 7mulKymgNJr5W5et7QMAaGi1gKzxMTXknxOStyD5Lu0bgHscDxwXtH3xbIe5hl1p
+      POSTGRES_PASSWORD: mysecretpassword
       POSTGRES_DB: kogito
     ports:
       - "5432:5432"
