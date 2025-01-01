@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+    volumes:
+      - .:/workspace:cached
+    ports:
+      - "8080:8080"
+    environment:
+      - JAVA_TOOL_OPTIONS=-Dquarkus.datasource.username=postgres
+      - JAVA_TOOL_OPTIONS=-Dquarkus.datasource.password=7mulKymgNJr5W5et7QMAaGi1gKzxMTXknxOStyD5Lu0bgHscDxwXtH3xbIe5hl1p
+      - JAVA_TOOL_OPTIONS=-Dquarkus.datasource.jdbc.url=jdbc:postgresql://db:5432/kogito
+      - JAVA_TOOL_OPTIONS=-Dquarkus.datasource.reactive.url=postgresql://db:5432/kogito
+      - JAVA_TOOL_OPTIONS=-Dquarkus.datasource.reactive.postgresql.ssl-mode=allow
+      - JAVA_TOOL_OPTIONS=-Dkogito.apps.persistence.type=postgresql
+      - JAVA_TOOL_OPTIONS=-Dkogito.persistence.type=jdbc
+      - JAVA_TOOL_OPTIONS=-Dkogito.persistence.query.timeout.millis=100000
+      - JAVA_TOOL_OPTIONS=-Dquarkus.oidc.enabled=false
+      - JAVA_TOOL_OPTIONS=-Dkogito.service.url=http://localhost:8080
+      - JAVA_TOOL_OPTIONS=-Dkogito.dataindex.http.url=http://localhost:8080
+      - JAVA_TOOL_OPTIONS=-Dkogito.dataindex.ws.url=ws://localhost:8080
+    command: ["./mvnw", "quarkus:dev"]
+
+  db:
+    image: postgres:14
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 7mulKymgNJr5W5et7QMAaGi1gKzxMTXknxOStyD5Lu0bgHscDxwXtH3xbIe5hl1p
+      POSTGRES_DB: kogito
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+volumes:
+  db_data:

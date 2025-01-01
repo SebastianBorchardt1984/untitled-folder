@@ -1,0 +1,19 @@
+{
+    "name": "Kogito Quarkus Dev Environment",
+    "dockerComposeFile": ["docker-compose.yml"],
+    "service": "app",
+    "workspaceFolder": "/workspace",
+    "extensions": [
+      "redhat.java",
+      "quarkusio.quarkus-vscode",
+      "ms-azuretools.vscode-docker",
+      "microsoft.vscode-postgresql"
+    ],
+    "settings": {
+      "java.configuration.updateBuildConfiguration": "interactive",
+      "editor.formatOnSave": true
+    },
+    "postCreateCommand": "./mvnw clean install",
+    "forwardPorts": [8080, 5432],
+    "shutdownAction": "stopContainer"
+}
