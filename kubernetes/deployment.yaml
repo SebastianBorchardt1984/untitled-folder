@@ -1,0 +1,114 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: quarkus-axxxxx-prozess-jvm
+  labels:
+    app: quarkus-axxxxx-prozess-jvm
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: quarkus-axxxxx-prozess-jvm
+  template:
+    metadata:
+      labels:
+        app: quarkus-axxxxx-prozess-jvm
+    spec:
+      containers:
+      - name: quarkus-axxxxx-prozess-jvm
+        image: quarkus/axxxxx_prozess-jvm:local
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 8080
+        resources:
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+          requests:
+            memory: "256Mi"
+            cpu: "250m"
+        env:
+        - name: QUARKUS_HTTP_CORS
+          value: "true"
+        - name: QUARKUS_SMALLRYE_OPENAPI_PATH
+          value: "/docs/openapi.json"
+        - name: QUARKUS_SWAGGER_UI_ALWAYS_INCLUDE
+          value: "true"
+        - name: QUARKUS_KOGITO_DATA_INDEX_GRAPHQL_UI_ALWAYS_INCLUDE
+          value: "true"
+        - name: KOGITO_GENERATE_REST_DECISIONS
+          value: "true"
+        - name: KOGITO_GENERATE_REST_PROCESSES
+          value: "true"
+        - name: QUARKUS_KOGITO_DEVSERVICES_ENABLED
+          value: "false"
+        - name: QUARKUS_DEVSERVICES_ENABLED
+          value: "false"
+        - name: QUARKUS_KOGITO_RUNTIME_TOOLS_USERS
+          value: "jdoe,admin,user"
+        - name: QUARKUS_KOGITO_RUNTIME_TOOLS_USERS_ADMIN_GROUPS
+          value: "user,admin,IT,HR"
+        - name: QUARKUS_KOGITO_RUNTIME_TOOLS_USERS_USER_GROUPS
+          value: "user,admin,IT,HR"
+        - name: QUARKUS_KOGITO_RUNTIME_TOOLS_USERS_JDOE_GROUPS
+          value: "user,admin,IT,HR"
+        - name: QUARKUS_FLYWAY_MIGRATE_AT_START
+          value: "true"
+        - name: QUARKUS_FLYWAY_BASELINE_ON_MIGRATE
+          value: "true"
+        - name: QUARKUS_FLYWAY_BASELINE_VERSION
+          value: "0.0"
+        - name: QUARKUS_FLYWAY_LOCATIONS
+          value: "classpath:/db/migration,classpath:/db/jobs-service,classpath:/db/data-audit/postgresql"
+        - name: QUARKUS_FLYWAY_TABLE
+          value: "FLYWAY_RUNTIME_SERVICE"
+        - name: QUARKUS_FLYWAY_OUT_OF_ORDER
+          value: "true"
+        - name: QUARKUS_DATASOURCE_DB_KIND
+          value: "postgresql"
+        - name: QUARKUS_DATASOURCE_USERNAME
+          value: "postgres"
+        - name: QUARKUS_DATASOURCE_PASSWORD
+          value: "7mulKymgNJr5W5et7QMAaGi1gKzxMTXknxOStyD5Lu0bgHscDxwXtH3xbIe5hl1p"
+        - name: QUARKUS_DATASOURCE_JDBC_URL
+          value: "jdbc:postgresql://database-cluster-rw.database:5432/kogito"
+        - name: QUARKUS_DATASOURCE_REACTIVE_URL
+          value: "postgresql://database-cluster-rw.database:5432/kogito"
+        - name: QUARKUS_DATASOURCE_REACTIVE_POSTGRESQL_SSL_MODE
+          value: "allow"
+        - name: KOGITO_APPS_PERSISTENCE_TYPE
+          value: "postgresql"
+        - name: KOGITO_PERSISTENCE_TYPE
+          value: "jdbc"
+        - name: KOGITO_PERSISTENCE_QUERY_TIMEOUT_MILLIS
+          value: "100000"
+        - name: QUARKUS_OIDC_ENABLED
+          value: "false"
+        - name: KOGITO_SERVICE_URL
+          value: "http://0.0.0.0:30080"
+        - name: KOGITO_DATAINDEX_HTTP_URL
+          value: "http://0.0.0.0:080"
+        - name: KOGITO_DATAINDEX_WS_URL
+          value: "ws://0.0.0.0:30080"
+        - name: QUARKUS_NATIVE_NATIVE_IMAGE_XMX
+          value: "6g"
+        - name: QUARKUS_LOG_CONSOLE_ENABLE
+          value: "true"
+        - name: QUARKUS_LOG_CONSOLE_LEVEL
+          value: "INFO"
+        - name: QUARKUS_LOG_LEVEL
+          value: "INFO"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: quarkus-axxxxx-prozess-jvm
+spec:
+  selector:
+    app: quarkus-axxxxx-prozess-jvm
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080
+    nodePort: 30080
+  type: NodePort

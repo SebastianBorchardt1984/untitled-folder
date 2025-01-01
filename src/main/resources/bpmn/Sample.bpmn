@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:bpsim="http://www.bpsim.org/schemas/1.0" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:drools="http://www.jboss.org/drools" id="_BE-1cKeNED2uXPsyQz9URQ" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd http://www.jboss.org/drools drools.xsd http://www.bpsim.org/schemas/1.0 bpsim.xsd http://www.omg.org/spec/DD/20100524/DC DC.xsd http://www.omg.org/spec/DD/20100524/DI DI.xsd " exporter="jBPM Process Modeler" exporterVersion="2.0" targetNamespace="http://www.omg.org/bpmn20">
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:bpsim="http://www.bpsim.org/schemas/1.0" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:drools="http://www.jboss.org/drools" id="_GTjmUKhBED2tg5ZRuVowag" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd http://www.jboss.org/drools drools.xsd http://www.bpsim.org/schemas/1.0 bpsim.xsd http://www.omg.org/spec/DD/20100524/DC DC.xsd http://www.omg.org/spec/DD/20100524/DI DI.xsd " exporter="jBPM Process Modeler" exporterVersion="2.0" targetNamespace="http://www.omg.org/bpmn20">
   <bpmn2:itemDefinition id="_hr_approvalItem" structureRef="Boolean"/>
   <bpmn2:itemDefinition id="_it_approvalItem" structureRef="Boolean"/>
   <bpmn2:itemDefinition id="_offerItem" structureRef="Integer"/>
@@ -48,8 +48,8 @@
   <bpmn2:itemDefinition id="__8962C15F-55EC-46F7-B926-5D5A1FD8D35E_baseSalaryInputXItem" structureRef="Integer"/>
   <bpmn2:itemDefinition id="__8962C15F-55EC-46F7-B926-5D5A1FD8D35E_bonusInputXItem" structureRef="Integer"/>
   <bpmn2:itemDefinition id="__8962C15F-55EC-46F7-B926-5D5A1FD8D35E_approveOutputXItem" structureRef="Boolean"/>
-  <bpmn2:collaboration id="_855330AE-2B09-4751-895D-7CC41C958F00" name="Default Collaboration">
-    <bpmn2:participant id="_54B7A1FD-02E4-4993-8CD6-BDCC74E254A8" name="Pool Participant" processRef="hiring"/>
+  <bpmn2:collaboration id="_F8B39E18-8297-4A00-AB01-A4423D56177C" name="Default Collaboration">
+    <bpmn2:participant id="_EAB3687A-94C3-4E4F-872A-81B84B04A2B4" name="Pool Participant" processRef="hiring"/>
   </bpmn2:collaboration>
   <bpmn2:process id="hiring" drools:packageName="org.kie.kogito.hr" drools:version="1.0" drools:adHoc="false" name="hiring" isExecutable="true" processType="Public">
     <bpmn2:property id="hr_approval" itemSubjectRef="_hr_approvalItem" name="hr_approval">
@@ -341,9 +341,9 @@ kcontext.setVariable("it_approval", false);</bpmn2:script>
         <bpmn2:sourceRef>_8962C15F-55EC-46F7-B926-5D5A1FD8D35E_approveOutputX</bpmn2:sourceRef>
         <bpmn2:targetRef>it_approval</bpmn2:targetRef>
       </bpmn2:dataOutputAssociation>
-      <bpmn2:potentialOwner id="_BFDG4KeNED2uXPsyQz9URQ">
-        <bpmn2:resourceAssignmentExpression id="_BFDG4aeNED2uXPsyQz9URQ">
-          <bpmn2:formalExpression>jdoe</bpmn2:formalExpression>
+      <bpmn2:potentialOwner id="_GTqUAKhBED2tg5ZRuVowag">
+        <bpmn2:resourceAssignmentExpression id="_GTqUAahBED2tg5ZRuVowag">
+          <bpmn2:formalExpression>admin</bpmn2:formalExpression>
         </bpmn2:resourceAssignmentExpression>
       </bpmn2:potentialOwner>
     </bpmn2:userTask>
@@ -433,9 +433,9 @@ kcontext.setVariable("it_approval", false);</bpmn2:script>
         <bpmn2:sourceRef>_B8C4F63C-81AD-4291-9C1B-84967277EEF6_bonusOutputX</bpmn2:sourceRef>
         <bpmn2:targetRef>bonus</bpmn2:targetRef>
       </bpmn2:dataOutputAssociation>
-      <bpmn2:potentialOwner id="_BFDt8KeNED2uXPsyQz9URQ">
-        <bpmn2:resourceAssignmentExpression id="_BFDt8aeNED2uXPsyQz9URQ">
-          <bpmn2:formalExpression>jdoe</bpmn2:formalExpression>
+      <bpmn2:potentialOwner id="_GTqUAqhBED2tg5ZRuVowag">
+        <bpmn2:resourceAssignmentExpression id="_GTqUA6hBED2tg5ZRuVowag">
+          <bpmn2:formalExpression>admin</bpmn2:formalExpression>
         </bpmn2:resourceAssignmentExpression>
       </bpmn2:potentialOwner>
     </bpmn2:userTask>
@@ -727,7 +727,7 @@ kcontext.setVariable("it_approval", false);</bpmn2:script>
         </bpsim:Scenario>
       </bpsim:BPSimData>
     </bpmn2:extensionElements>
-    <bpmn2:source>_BE-1cKeNED2uXPsyQz9URQ</bpmn2:source>
-    <bpmn2:target>_BE-1cKeNED2uXPsyQz9URQ</bpmn2:target>
+    <bpmn2:source>_GTjmUKhBED2tg5ZRuVowag</bpmn2:source>
+    <bpmn2:target>_GTjmUKhBED2tg5ZRuVowag</bpmn2:target>
   </bpmn2:relationship>
 </bpmn2:definitions>
