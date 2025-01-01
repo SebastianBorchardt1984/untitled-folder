@@ -1,23 +1,22 @@
 {
-  "name": "Kogito Quarkus Dev Environment",
+  "name": "Quarkus Dev Environment",
   "dockerComposeFile": ["docker-compose.yml"],
   "service": "app",
   "workspaceFolder": "/workspace",
   "extensions": [
     "redhat.java",
     "quarkusio.quarkus-vscode",
-    "ms-azuretools.vscode-docker", // Nützlich für die Visualisierung und Verwaltung von Docker
+    "ms-azuretools.vscode-docker",
     "microsoft.vscode-postgresql",
     "ckolkman.vscode-postgres",
     "kie-group.vscode-extension-kogito-bundle",
-    "github.copilot",
-    "ms-vsliveshare.vsliveshare"
+    "github.copilot"
   ],
   "settings": {
     "java.configuration.updateBuildConfiguration": "interactive",
     "editor.formatOnSave": true
   },
-  "postCreateCommand": "./mvnw clean install",
+  "postCreateCommand": "chmod +x mvnw && ./mvnw clean install",
   "forwardPorts": [8080, 5432],
   "shutdownAction": "stopContainer"
 }
