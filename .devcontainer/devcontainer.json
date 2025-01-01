@@ -16,6 +16,14 @@
     "java.configuration.updateBuildConfiguration": "interactive",
     "editor.formatOnSave": true
   },
+  "features": {
+    "ghcr.io/devcontainers/features/java:1": {
+      "version": "17"
+    },
+    "ghcr.io/devcontainers/features/maven:1": {
+      "version": "latest"
+    }
+  },
   "postCreateCommand": "chmod +x mvnw && ./mvnw clean install",
   "forwardPorts": [8080, 5432],
   "shutdownAction": "stopContainer"
