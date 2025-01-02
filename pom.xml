@@ -1,47 +1,17 @@
-<?xml version="1.0" ?>
-<!--
-  ~ Licensed to the Apache Software Foundation (ASF) under one
-  ~ or more contributor license agreements.  See the NOTICE file
-  ~ distributed with this work for additional information
-  ~ regarding copyright ownership.  The ASF licenses this file
-  ~ to you under the Apache License, Version 2.0 (the
-  ~ "License"); you may not use this file except in compliance
-  ~ with the License.  You may obtain a copy of the License at
-  ~ 
-  ~   http://www.apache.org/licenses/LICENSE-2.0
-  ~ 
-  ~ Unless required by applicable law or agreed to in writing,
-  ~ software distributed under the License is distributed on an
-  ~ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-  ~ KIND, either express or implied.  See the License for the
-  ~ specific language governing permissions and limitations
-  ~ under the License.      
--->
-<project
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
-        xmlns="http://maven.apache.org/POM/4.0.0">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-
-  <parent>
-    <groupId>org.kie.kogito.examples</groupId>
-    <artifactId>kogito-quarkus-examples</artifactId>
-    <version>999-SNAPSHOT</version>
-  </parent>
-  <artifactId>process-compact-architecture</artifactId>
-  <name>KIE Tools :: Example :: Process Compact Architecture</name>
+  <groupId>org.aoknordost</groupId>
+  <artifactId>axxxxx_prozess</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
   <properties>
-    <kogito.management-console.image>docker.io/apache/incubator-kie-kogito-management-console:main</kogito.management-console.image>
-    <kogito.task-console.image>docker.io/apache/incubator-kie-kogito-task-console:main</kogito.task-console.image>
-    <quarkus-plugin.version>3.8.6</quarkus-plugin.version>
+    <quarkus-plugin.version>3.8.5</quarkus-plugin.version>
     <quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
     <quarkus.platform.group-id>io.quarkus</quarkus.platform.group-id>
-    <quarkus.platform.version>3.8.6</quarkus.platform.version>
+    <quarkus.platform.version>3.8.5</quarkus.platform.version>
     <kogito.bom.group-id>org.kie.kogito</kogito.bom.group-id>
     <kogito.bom.artifact-id>kogito-bom</kogito.bom.artifact-id>
-    <kogito.bom.version>999-SNAPSHOT</kogito.bom.version>
-    <version.org.kie.kogito>999-SNAPSHOT</version.org.kie.kogito>
-
+    <kogito.bom.version>10.0.0</kogito.bom.version>
+    <version.org.kie.kogito>10.0.0</version.org.kie.kogito>
   </properties>
   <dependencyManagement>
     <dependencies>
@@ -64,11 +34,15 @@
   <dependencies>
     <dependency>
       <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-resteasy</artifactId>
+      <artifactId>quarkus-resteasy-reactive</artifactId>
     </dependency>
     <dependency>
       <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-resteasy-jackson</artifactId>
+      <artifactId>quarkus-resteasy-reactive-jackson</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.datatype</groupId>
+      <artifactId>jackson-datatype-jsr310</artifactId>
     </dependency>
     <dependency>
       <groupId>io.quarkus</groupId>
@@ -78,20 +52,14 @@
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-smallrye-health</artifactId>
     </dependency>
-
     <dependency>
       <groupId>org.jbpm</groupId>
       <artifactId>jbpm-with-drools-quarkus</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>org.kie</groupId>
-      <artifactId>kie-addons-quarkus-process-management</artifactId>
       <version>10.0.0</version>
     </dependency>
     <dependency>
       <groupId>org.kie</groupId>
-      <artifactId>kogito-addons-quarkus-jobs-management</artifactId>
+      <artifactId>kie-addons-quarkus-process-management</artifactId>
       <version>10.0.0</version>
     </dependency>
     <dependency>
@@ -104,8 +72,26 @@
       <artifactId>kie-addons-quarkus-source-files</artifactId>
       <version>10.0.0</version>
     </dependency>
-
-    <!-- Persistence -->
+    <dependency>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-addons-quarkus-messaging</artifactId>
+      <version>10.0.0</version>
+    </dependency>
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-smallrye-reactive-messaging-amqp</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.quarkiverse.reactivemessaging.http</groupId>
+      <artifactId>quarkus-reactive-messaging-http</artifactId>
+      <version>2.2.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.kie.kogito</groupId>
+      <artifactId>kogito-rest-workitem</artifactId>
+      <!-- version>999-SNAPSHOT</version -->
+    </dependency>
+    <!--  Persistence  -->
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-jdbc-postgresql</artifactId>
@@ -119,33 +105,25 @@
       <artifactId>kie-addons-quarkus-persistence-jdbc</artifactId>
       <version>10.0.0</version>
     </dependency>
-
-    <!-- Data-Index Addon -->
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-hibernate-orm-panache</artifactId>
+    </dependency>
+    <!--  Data Index Addon  -->
     <dependency>
       <groupId>org.kie</groupId>
-      <artifactId>kogito-addons-quarkus-data-index-jpa</artifactId>
-      <version>999-SNAPSHOT</version>
+      <artifactId>kogito-addons-quarkus-data-index-postgresql</artifactId>
+      <version>10.0.0</version>
     </dependency>
-
-    <!-- Jobs Service -->
+    <!--  Data Index Persistence  -->
     <dependency>
       <groupId>org.kie</groupId>
-      <artifactId>kogito-addons-quarkus-jobs</artifactId>
-      <version>999-SNAPSHOT</version>
+      <artifactId>kogito-addons-quarkus-data-index-persistence-postgresql</artifactId>
+      <version>10.0.0</version>
     </dependency>
+    <!--  Jobs Service  -->
+    <!--  Data Audit  -->
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>jobs-service-storage-jpa</artifactId>
-      <version>999-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-        <groupId>org.jbpm</groupId>
-        <artifactId>jbpm-quarkus-devui-deployment</artifactId>
-        <version>10.0.0</version>
-    </dependency>
-
-    <!-- Data Audit -->
-<!--     <dependency>
       <groupId>org.kie</groupId>
       <artifactId>kogito-addons-quarkus-data-audit-jpa</artifactId>
       <version>10.0.0</version>
@@ -154,57 +132,24 @@
       <groupId>org.kie</groupId>
       <artifactId>kogito-addons-quarkus-data-audit</artifactId>
       <version>10.0.0</version>
-    </dependency> -->
+    </dependency>
+    <dependency>
+      <groupId>io.quarkiverse.dashbuilder</groupId>
+      <artifactId>quarkus-dashbuilder</artifactId>
+      <version>0.32.0</version>
+    </dependency>
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-logging-gelf</artifactId>
+    </dependency>
   </dependencies>
-
-  <profiles>
-    <profile>
-      <id>container</id>
-      <properties>
-        <quarkus.profile>container</quarkus.profile>
-      </properties>
-      <dependencies>
-        <dependency>
-          <groupId>io.quarkus</groupId>
-          <artifactId>quarkus-container-image-jib</artifactId>
-        </dependency>
-      </dependencies>
-    </profile>
-    <profile>
-      <id>development</id>
-      <properties>
-        <quarkus.profile>dev</quarkus.profile>
-      </properties>
-      <dependencyManagement>
-        <dependencies>
-          <dependency>
-            <groupId>org.jbpm</groupId>
-            <artifactId>jbpm-quarkus-devui-bom</artifactId>
-            <version>${project.version}</version>
-            <type>pom</type>
-            <scope>import</scope>
-          </dependency>
-        </dependencies>
-      </dependencyManagement>
-      <dependencies>
-        <dependency>
-          <groupId>org.jbpm</groupId>
-          <artifactId>jbpm-quarkus-devui</artifactId>
-        </dependency>
-        <dependency>
-          <groupId>io.quarkus</groupId>
-          <artifactId>quarkus-jdbc-h2</artifactId>
-        </dependency>
-      </dependencies>
-    </profile>
-  </profiles>
-
   <build>
     <finalName>${project.artifactId}</finalName>
     <plugins>
       <plugin>
-        <groupId>io.quarkus</groupId>
+        <groupId>${quarkus.platform.group-id}</groupId>
         <artifactId>quarkus-maven-plugin</artifactId>
+        <version>${quarkus-plugin.version}</version>
         <executions>
           <execution>
             <goals>
@@ -214,6 +159,14 @@
         </executions>
       </plugin>
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>2.3.2</version>
+        <configuration>
+          <encoding>UTF-8</encoding>
+        </configuration>
+      </plugin>
+      <plugin>
         <artifactId>maven-antrun-plugin</artifactId>
         <executions>
           <execution>
@@ -221,16 +174,33 @@
             <goals>
               <goal>run</goal>
             </goals>
-            <configuration>
-              <target>
-                <copy todir="./docker-compose/svg" overwrite="true">
-                  <fileset dir="target/classes/META-INF/processSVG/" />
-                </copy>
-              </target>
-            </configuration>
           </execution>
         </executions>
       </plugin>
     </plugins>
   </build>
+  <repositories>
+    <!-- repository>       
+      <releases>         
+        <enabled>false</enabled>       
+      </releases>       
+      <snapshots>         
+        <enabled>true</enabled>       
+      </snapshots>       
+      <id>apache.snapshots</id>       
+      <name>Apache Snapshot Repository</name>       
+      <url>https://repository.apache.org/snapshots</url>     
+    </repository -->
+    <repository>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <id>apache.staging</id>
+      <name>Apache Repository</name>
+      <url>https://repository.apache.org/content/groups/staging</url>
+    </repository>
+  </repositories>
 </project>
