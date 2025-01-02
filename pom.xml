@@ -34,10 +34,6 @@
   <dependencies>
     <dependency>
       <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-resteasy-reactive</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>io.quarkus</groupId>
       <artifactId>quarkus-resteasy-reactive-jackson</artifactId>
     </dependency>
     <dependency>
@@ -139,9 +135,9 @@
       <version>0.32.0</version>
     </dependency>
     <dependency>
-        <groupId>org.jbpm</groupId>
-        <artifactId>jbpm-quarkus-devui-deployment</artifactId>
-        <version>999-SNAPSHOT</version>
+      <groupId>org.jbpm</groupId>
+      <artifactId>jbpm-quarkus-devui-deployment</artifactId>
+      <version>10.0.0</version>
     </dependency>
     <dependency>
       <groupId>io.quarkus</groupId>
@@ -185,7 +181,17 @@
     </plugins>
   </build>
   <repositories>
-    <!-- repository>       <releases>         <enabled>false</enabled>       </releases>       <snapshots>         <enabled>true</enabled>       </snapshots>       <id>apache.snapshots</id>       <name>Apache Snapshot Repository</name>       <url>https://repository.apache.org/snapshots</url>     </repository -->
+    <repository>
+      <releases>
+      <enabled>false</enabled>
+      </releases>
+      <snapshots>
+      <enabled>true</enabled>
+      </snapshots>
+      <id>apache.snapshots</id>
+      <name>Apache Snapshot Repository</name>
+      <url>https://repository.apache.org/snapshots</url>
+    </repository>
     <repository>
       <releases>
         <enabled>true</enabled>
