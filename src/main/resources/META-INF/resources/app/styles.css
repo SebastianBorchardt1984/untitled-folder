@@ -257,3 +257,54 @@ ul .active {
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
+.details-container, .progress-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.detail-item, .progress-item {
+    flex: 1 1 45%; /* Adjust the width of each item */
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.detail-item strong, .progress-item strong {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.state-active {
+    color: blue;
+}
+
+.state-completed {
+    color: green;
+}
+
+.state-error, .state-abort {
+    color: red;
+}
+
+.state-default {
+    color: black;
+}
+
+.progress-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.progress-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.progress-item img {
+    margin-right: 10px;
+}

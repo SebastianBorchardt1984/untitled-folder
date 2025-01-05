@@ -48,6 +48,10 @@
         .progress-item img {
             margin-right: 10px;
         }
+        .logo-icon {
+            width: 32px; /* Adjust the size as needed */
+            height: 32px; /* Adjust the size as needed */
+        }
     </style>
 </head>
 <body>
@@ -189,7 +193,7 @@
                 const sortedNodes = instance.nodes.sort((a, b) => new Date(a.exit) - new Date(b.exit));
                 progressContent.innerHTML = sortedNodes.map(node => `
                     <div class="progress-item">
-                        <img src="/app/quarkus-logo.png" alt="Icon" />
+                        <img src="/app/quarkus-logo.png" alt="Logo" class="logo-icon">
                         <span>${node.name}</span>
                     </div>
                 `).join('');
