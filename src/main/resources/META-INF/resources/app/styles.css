@@ -1,0 +1,259 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    color: #007a33; /* AOK green color */
+    text-align: center;
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+
+#controls {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#controls input, #controls select {
+    padding: 10px;
+    font-size: 1em;
+    margin: 0 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#content {
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+table {
+    width: 80%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 1em;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+table thead tr {
+    background-color: #007a33; /* AOK green color */
+    color: #ffffff;
+    text-align: left;
+}
+
+table th, table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+}
+
+table tbody tr {
+    background-color: #f9f9f9;
+    transition: background-color 0.3s;
+}
+
+table tbody tr:nth-of-type(even) {
+    background-color: #f1f1f1;
+}
+
+table tbody tr:hover {
+    background-color: #e9e9e9;
+}
+
+table tbody tr:last-of-type {
+    border-bottom: 2px solid #007a33; /* AOK green color */
+}
+
+#button-container {
+    display: flex;
+    justify-content: flex-end;
+    width: 80%;
+    margin: 10px auto 0; /* Adjust the margin to control the gap */
+}
+
+#rowCount {
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+button {
+    padding: 5px 10px;
+    font-size: 1em;
+    background-color: #007a33; /* AOK green color */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+button:hover {
+    background-color: #005a23; /* Darker green for hover effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#back-button {
+    display: block;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #007a33; /* AOK green color */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+#back-button:hover {
+    background-color: #005a23; /* Darker green for hover effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#content-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+#details-container {
+    width: 48%;
+    padding: 10px;
+    border: 2px solid #007a33; /* AOK green color */
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+#diagram-container {
+    width: 48%;
+    padding: 10px;
+    border: 2px solid #007a33; /* AOK green color */
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    position: relative;
+}
+
+#diagram-content {
+    max-width: 100%;
+    overflow: auto;
+}
+
+#zoom-controls {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 10px;
+}
+
+#zoom-controls button {
+    padding: 5px 10px;
+    font-size: 1em;
+    background-color: #007a33; /* AOK green color */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+#zoom-controls button:hover {
+    background-color: #005a23; /* Darker green for hover effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#zoom-level {
+    margin-left: 10px;
+    font-size: 1em;
+    color: #333;
+}
+
+#variables-container {
+    width: 48%;
+    margin-top: 20px;
+    padding: 10px;
+    border: 2px solid #007a33; /* AOK green color */
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+ul, #variables-content {
+    list-style-type: none;
+}
+
+.caret {
+    cursor: pointer;
+    user-select: none;
+}
+
+.caret::before {
+    content: "\25B6";
+    color: black;
+    display: inline-block;
+    margin-right: 6px;
+}
+
+.caret-down::before {
+    transform: rotate(90deg);
+}
+
+ul ul {
+    display: none;
+}
+
+ul .active {
+    display: block;
+}
+
+.value {
+    color: #007a33; /* AOK green color */
+}
+
+.bottom-right-button {
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #007a33; /* AOK green color */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.bottom-right-button:hover {
+    background-color: #005a23; /* Darker green for hover effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#action-buttons {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.dropdown {
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}

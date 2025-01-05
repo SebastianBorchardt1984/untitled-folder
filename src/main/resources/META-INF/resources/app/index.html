@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Quarkus WebApp</title>
+    <link rel="stylesheet" href="/app/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1>Welcome to My Quarkus WebApp</h1>
+    <div id="controls">
+        <input type="text" id="search" placeholder="Search...">
+    </div>
+    <div id="content"></div>
+    <div id="button-container">
+        <select id="rowCount">
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="50">50</option>
+            <option value="100" selected>100</option>
+            <option value="1000">1000</option>
+            <option value="all">All</option>
+        </select>
+    </div>
+    <script src="/app/app.js"></script>
+</body>
+</html>
