@@ -1,0 +1,29 @@
+package org.aoknordost.axxxxx_prozess;
+import java.util.Map;
+import jakarta.inject.Inject;
+import jakarta.inject.Named;
+import jakarta.ws.rs.Consumes;
+import jakarta.ws.rs.POST;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.core.MediaType;
+import org.kie.kogito.process.Process;
+import org.kie.kogito.process.ProcessInstance;
+import org.kie.kogito.Model;
+import org.kie.kogito.Application;
+import org.kie.kogito.process.Processes;
+import org.kie.kogito.services.uow.UnitOfWorkManager;
+import org.aoknordost.axxxxx_prozess.TestService;
+
+@Path("/hello")
+public class GreetingResource {
+
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public DataContext hello(Map<String, Object> payload) {
+
+        TestService.startdeals();
+
+    }
+}
