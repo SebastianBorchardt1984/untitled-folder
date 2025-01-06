@@ -18,12 +18,15 @@ import org.aoknordost.axxxxx_prozess.TestService;
 @Path("/hello")
 public class GreetingResource {
 
-    @POST
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
-    public DataContext hello(Map<String, Object> payload) {
+    @Path("/hello")
+public class GreetingResource {
 
+    @GET
+    @Produces(MediaType.TEXT_PLAIN)
+    public String hello() {
         TestService.startdeals();
+        return "Hello from Quarkus REST";
+    }
 
     }
 }
