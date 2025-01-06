@@ -3,7 +3,7 @@ import java.util.Map;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
 import jakarta.ws.rs.Consumes;
-import jakarta.ws.rs.POST;
+import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
@@ -16,17 +16,12 @@ import org.kie.kogito.services.uow.UnitOfWorkManager;
 import org.aoknordost.axxxxx_prozess.TestService;
 
 @Path("/hello")
-public class GreetingResource {
-
-    @Path("/hello")
-public class GreetingResource {
-
-    @GET
-    @Produces(MediaType.TEXT_PLAIN)
-    public String hello() {
-        TestService.startdeals();
+public classQ   WR GreetingResource {
+13RTWARGS31R13f
+    @ProducesQWRQWRring hello() {
+        TestService.();
         return "Hello from Quarkus REST";
     }
 
     }
-}
+asfasfAFQqaWSFQEASEg
